@@ -160,6 +160,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * Swagger Service Provider
+        */
+        \L5Swagger\L5SwaggerServiceProvider::class
+
     ],
 
     /*
