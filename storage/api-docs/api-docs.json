@@ -1,0 +1,54 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API",
+        "version": "1.0"
+    },
+    "host": "127.0.0.1:8000",
+    "basePath": "",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/api/dashboard": {
+            "get": {
+                "tags": [
+                    "dashboard"
+                ],
+                "summary": "Display a listing of the resource.",
+                "description": "Returns dashboard overview.",
+                "operationId": "api.dashboard.index",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dashboard overview."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "description": "Class ApiController",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "description": "Class ApiController",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
