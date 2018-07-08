@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'api/'], function () {
-    Route::get('dashboard', 'DashboardController@index');
+    Route::resource('events', 'EventController');
+    Route::resource('dashboard', 'DashboardController');
 });
