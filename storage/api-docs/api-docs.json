@@ -16,14 +16,196 @@
                     "dashboard"
                 ],
                 "summary": "Display a listing of the resource.",
-                "description": "Returns dashboard overview.",
-                "operationId": "api.dashboard.index",
+                "description": "Returns events filtered by name and minute.",
+                "operationId": "getEvents",
                 "produces": [
                     "application/json"
                 ],
                 "responses": {
                     "200": {
-                        "description": "Dashboard overview."
+                        "description": "Events overview."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/events": {
+            "get": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "Display a listing of the resource.",
+                "description": "Returns events overview.",
+                "operationId": "getEvents",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Events overview."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "Create an event with parameters.",
+                "operationId": "addEvent",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Name of the event",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cookie_id",
+                        "in": "formData",
+                        "description": "Unique cookie ID",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "referrer",
+                        "in": "formData",
+                        "description": "Source of the event",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New event has been created successfully."
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/events/{id}": {
+            "get": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "Returns event with correspondant id.",
+                "operationId": "getEventById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the event",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Event overview."
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "Update the specified resource in storage.",
+                "description": "Delete event with correspondant id.",
+                "operationId": "updateEventById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the event",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Name of the event",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cookie_id",
+                        "in": "formData",
+                        "description": "Unique cookie ID",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "referrer",
+                        "in": "formData",
+                        "description": "Source of the event",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Event has been deleted successfully."
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "events"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "Delete event with correspondant id.",
+                "operationId": "deleteEventById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the event",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Event has been deleted successfully."
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
                     },
                     "401": {
                         "description": "Unauthorized action."
@@ -32,23 +214,5 @@
             }
         }
     },
-    "definitions": {
-        "Error": {
-            "required": [
-                "code",
-                "message"
-            ],
-            "properties": {
-                "code": {
-                    "description": "Class ApiController",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "description": "Class ApiController",
-                    "type": "string"
-                }
-            }
-        }
-    }
+    "definitions": {}
 }
