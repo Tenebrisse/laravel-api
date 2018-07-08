@@ -15,20 +15,7 @@ use Illuminate\Http\Request;
  *     schemes={"http"},
  *     @SWG\Info(
  *         version="1.0",
- *         title="API",
- *     ),
- *     @SWG\Definition(
- *         definition="Error",
- *         required={"code", "message"},
- *         @SWG\Property(
- *             property="code",
- *             type="integer",
- *             format="int32"
- *         ),
- *         @SWG\Property(
- *             property="message",
- *             type="string"
- *         )
+ *         title="API"
  *     )
  * )
  */
