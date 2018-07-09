@@ -2,6 +2,13 @@
 
 Technical test
 
+## Requirements
+* PHP 7.2
+* PHP 7.2-mbstring
+* PHP 7.2-mysql
+* PHP 7.2-xml
+* PHP 7.2-zip
+
 ## Configuration
 
 ### SQL
