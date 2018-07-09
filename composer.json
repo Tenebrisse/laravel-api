@@ -39,6 +39,9 @@
         }
     },
     "scripts": {
+        "post-install-cmd": [
+          "php -r \"file_put_contents('.env', preg_replace('%homestead%', 'laravel_api', file_get_contents('.env.example')));\" && php -r \"file_put_contents('.env', preg_replace('%secret%', '', file_get_contents('.env')));\" && php artisan key:generate"
+        ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
