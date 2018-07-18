@@ -134,7 +134,7 @@
                     "events"
                 ],
                 "summary": "Update the specified resource in storage.",
-                "description": "Delete event with correspondant id.",
+                "description": "Update event with correspondant id.",
                 "operationId": "updateEventById",
                 "produces": [
                     "application/json"
@@ -171,7 +171,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Event has been deleted successfully."
+                        "description": "Event has been updated successfully."
                     },
                     "400": {
                         "description": "Invalid ID supplied"
