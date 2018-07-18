@@ -128,7 +128,7 @@ class EventController extends Controller
      *
      * @SWG\Put(
      *     path="/api/events/{id}",
-     *     description="Delete event with correspondant id.",
+     *     description="Update event with correspondant id.",
      *     operationId="updateEventById",
      *     produces={"application/json"},
      *     tags={"events"},
@@ -138,7 +138,7 @@ class EventController extends Controller
      *     @SWG\Parameter(name="referrer", in="formData", required=false, type="string", description="Source of the event"),
      *     @SWG\Response(
      *         response=200,
-     *         description="Event has been deleted successfully."
+     *         description="Event has been updated successfully."
      *     ),
      *     @SWG\Response(
      *         response=400,
@@ -159,7 +159,7 @@ class EventController extends Controller
 
         $event->update($request->input());
 
-        return response()->json("Event has been updated successfully", 201);
+        return response()->json($event);
     }
 
     /**
@@ -192,6 +192,6 @@ class EventController extends Controller
     public function destroy(Event $event) {
         $event->delete();
 
-        return response()->json("Event has been deleted successfully", 201);
+        return response()->json("", 204);
     }
 }
