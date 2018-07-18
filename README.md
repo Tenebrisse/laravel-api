@@ -2,6 +2,20 @@
 
 Technical test
 
+## Install Laravel with composer
+```shell
+composer global require "laravel/installer"
+```
+
+* check https://laravel.com/docs/5.6#installing-laravel if needed
+
+## Requirements
+* PHP 7.2
+* PHP 7.2-mbstring
+* PHP 7.2-mysql
+* PHP 7.2-xml
+* PHP 7.2-zip
+
 ## Configuration
 
 ### SQL

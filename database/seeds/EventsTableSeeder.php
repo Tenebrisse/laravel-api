@@ -12,7 +12,7 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
-        Event::create(['name' => 'click', 'cookie_id' => 1, 'referrer' => 'pub1', 'created_at' => '2018-07-07']);
-        Event::create(['name' => 'print', 'cookie_id' => 2, 'referrer' => 'pub1', 'created_at' => '2018-07-07']);
+        Event::create(['name' => 'event1', 'cookie_id' => 1, 'referrer' => 'referrer1', 'created_at' => '2018-07-07']);
+        Event::create(['name' => 'event2', 'cookie_id' => 2, 'referrer' => 'referrer2', 'created_at' => '2018-07-07']);
     }
 }
